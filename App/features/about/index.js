@@ -1,3 +1,4 @@
-import About from './aboutContainer';
+import About from './content';
+
 
 export { About };

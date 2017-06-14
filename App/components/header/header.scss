@@ -1,0 +1,19 @@
+header {
+  text-align: right;
+  position: fixed;
+  right: 15px;
+  width: 100%;
+  background-color: white;
+  display: table;
+  border-bottom: 1px solid;
+
+  &.default {
+    height: 90px;
+    transition: 0.5s;
+  }
+
+  &.fix {
+    height: 60px;
+    transition: 0.5s;
+  }
+}
