@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import classes from './intro.scss';
 
 const Intro = () => (
-  <section id="intro">
-    <div className="title">{'intro'}</div>
+  <section id="intro" className={`${classes.intro}`}>
+    {'intro'}
   </section>
 );
 

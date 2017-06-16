@@ -1,22 +1,47 @@
+@import '../../../assets/mixin.scss';
+
 nav {
   vertical-align: middle;
-  line-height: 40px;
+  padding-right: 15px;
   display: table-cell;
+  right: 0;
 
   a {
     display: inline-block;
     text-decoration: none;
     padding:0 12px;
-    color:black;
+    color:#7f7f7f;
 
-    &:hover {
-       background: blue;
-       color: white;
-       font-size: 700;
+    span {
+      display: block;
+      position: relative;
+      padding-bottom: 5px;
+
+      &:before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0px;
+        left: 0;
+        background-color: #6173f4;
+        visibility: hidden;
+        @include prefix('transform','scaleX(0)');
+        @include prefix('transition','all 0.3s ease-in-out 0s');
+      }
+    }
+
+    &:hover, &.active {
+       color: #6173f4 !important;
+
+       span:before {
+         visibility: visible;
+         @include prefix('transform','scaleX(1)');
+         @include prefix('transition','all 0.3s ease-in-out 0s');
+       }
      }
 
     &.active {
-      background-color: green;
     }
   }
 }

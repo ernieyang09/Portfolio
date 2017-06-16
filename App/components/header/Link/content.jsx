@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import Velocity from 'velocity-animate';
-import classes from './link.scss';
 import { Action } from '../../app';
+import constants from '../constants';
 
+import './link.scss';
 
 const mapStateToProps = (state) => {
   return ({
@@ -17,11 +18,14 @@ const mapDispatchToProps = (dispatch) => {
   return ({
     onClick: (e, page) => {
       e.preventDefault();
+      const offset = (page === 'intro') ? constants.navDefault : constants.navFix;
+
       Velocity(document.getElementById(page), 'scroll', {
         duration: 500,
-        offset: -(document.getElementsByTagName('header')[0].clientHeight),
+        offset: -offset,
         easing: 'ease-in-out',
       });
+
       dispatch(Action.changePage(page));
     },
   });
@@ -36,11 +40,11 @@ const Link = ({
 }) => {
 
   const btnClass = classNames({
-    [classes.active]: page === current,
+    active: page === current,
   });
 
   return (
-    <a href={`#${page}`} className={btnClass} onClick={(e) => { onClick(e,page); }}>{text}</a>
+    <a href={`#${page}`} className={btnClass} onClick={(e) => { onClick(e,page); }}><span>{text}</span></a>
   );
 };
 

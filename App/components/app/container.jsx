@@ -8,54 +8,15 @@ import { About } from '../../features/about';
 import { Skill } from '../../features/skill';
 import { Experience } from '../../features/experience';
 import { Contact } from '../../features/contact';
+import Footer from '../footer/footer';
 
+require('flexboxgrid');
 require('../../assets/main.scss');
+require('../../assets/font.css');
 require('../../assets/normalize.css');
 
 
 class App extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.scrollFunction = this.scrollListener.bind(this);
-  // }
-  //
-  // componentDidMount() {
-  //   this.attachScrollListener();
-  // }
-  //
-  // componentWillUnmount() {
-  //   this.detachScrollListener();
-  // }
-  //
-  // attachScrollListener() {
-  //   const el = window;
-  //   el.addEventListener('scroll', this.scrollFunction, true);
-  //   el.addEventListener('resize', this.scrollFunction, true);
-  // }
-  //
-  // detachScrollListener() {
-  //   const el = window;
-  //   el.removeEventListener('scroll', this.scrollFunction, true);
-  //   el.removeEventListener('resize', this.scrollFunction, true);
-  // }
-  //
-  // scrollListener(e) {
-  //   const el = window;
-  //   const windowScrollTop = (window.pageYOffset !== undefined) ?
-  //                           window.pageYOffset :
-  //   (document.documentElement || document.body.parentNode || document.body).scrollTop;
-  //
-  //   if (windowScrollTop === 0 && this.props.navStyle !== 'default') {
-  //     this.props.onchangeNav('default');
-  //   } else if (windowScrollTop !== 0 && this.props.navStyle !== 'fix') {
-  //     this.props.onchangeNav('fix');
-  //   }
-  //
-  //
-  //   return windowScrollTop;
-  // }
-
-
   render() {
     return (
       <div style={{ overflow: 'auto' }}>
@@ -65,6 +26,7 @@ class App extends React.Component {
         <Skill />
         <Experience />
         <Contact />
+        <Footer />
       </div>
     );
   }

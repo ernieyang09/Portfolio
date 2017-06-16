@@ -1,0 +1,26 @@
+@mixin xs {
+
+}
+
+@mixin prefix($property, $value, $vendors: webkit moz ms o, $default: true) {
+  @if $vendors {
+    @each $vendor in $vendors {
+      #{"-" + $vendor + "-" + $property}: #{$value};
+    }
+  }
+  @if $default {
+    #{$property}: #{$value};
+  }
+}
+
+@mixin sm {
+  @media only screen and (min-width: 48em) {
+    @content
+  }
+}
+
+@mixin lg {
+  @media only screen and (min-width: 75em) {
+    @content
+  }
+}

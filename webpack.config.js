@@ -44,10 +44,14 @@ module.exports = {
         use: [{
             loader: "style-loader" // creates style nodes from JS strings
         }, {
-            loader: "css-loader?modules" // translates CSS into CommonJS
+            loader: "css-loader" // translates CSS into CommonJS
         }, {
             loader: "sass-loader" // compiles Sass to CSS
         }]
+      },
+      {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        loader: 'url-loader?limit=100000'
       }
     ]
   },

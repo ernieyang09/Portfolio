@@ -1,19 +1,22 @@
 header {
   text-align: right;
   position: fixed;
-  right: 15px;
   width: 100%;
   background-color: white;
   display: table;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 
   &.default {
     height: 90px;
     transition: 0.5s;
   }
 
+
+
   &.fix {
     height: 60px;
     transition: 0.5s;
   }
+
+
 }

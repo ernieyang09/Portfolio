@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { Link } from './Link';
-import classes from './header.scss';
 import { Action } from '../app/';
+
+import './header.scss';
 
 class Header extends React.Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <header className={`${classes[this.props.navStyle]}`}>
+      <header className={this.props.navStyle}>
         <nav>
           <Link page="intro" text="Intro" />
           <Link page="skill" text="Skill" />

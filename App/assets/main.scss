@@ -1,8 +1,20 @@
+@import "mixin.scss";
+
 body {
   margin:0;
+  color: #7f7f7f;
 }
 
 section {
-  height: calc(100vh - 60px);
-  box-sizing: border-box;
+  padding-top: 100px;
+  min-height: 300px;
+
+
+  .sec-title {
+
+    @include sm{
+      text-align: right;
+    }
+  }
+
 }

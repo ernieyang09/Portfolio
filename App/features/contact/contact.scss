@@ -1,0 +1,27 @@
+@import '../../assets/mixin.scss';
+
+#contact {
+  padding-bottom: 50px;
+  background: rgb(249, 249, 249);
+  .sec-content {
+    .content-row {
+      height: 60px;
+      line-height: 60px;
+
+      @include sm {
+        height: 70px;
+        line-height: 70px;
+
+      }
+    }
+  }
+  i{
+    font-size: 18px;
+    vertical-align: middle;
+    color: white;
+    margin-right: 12px;
+    padding: 9px;
+    border-radius: 25px;
+    background: #3c67d6;
+  }
+}
