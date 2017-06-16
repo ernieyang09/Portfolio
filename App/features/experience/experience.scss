@@ -1,0 +1,137 @@
+@import '../../assets/mixin.scss';
+
+.timeline {
+    line-height: 1.4em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    letter-spacing: 3px;
+
+    * , *:after , *:before {
+        box-sizing: border-box;
+    }
+
+    .timeline-item {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        padding-bottom: 40px;
+
+        &:nth-child(odd) {
+            .timeline-time {
+                padding-left: 40px;
+                @include lg {
+                    float: left;
+                    text-align: right;
+                    padding-right: 30px;
+                }
+            }
+
+            .timeline-content {
+                padding-left: 40px;
+                @include lg {
+                    float: right;
+                    text-align: left;
+                    padding-left: 30px;
+                }
+            }
+        }
+
+        &:nth-child(even) {
+            .timeline-time {
+                padding-left: 40px;
+                @include lg {
+                    float: right;
+                    text-align: left;
+                    padding-left: 30px;
+                    width: 50%;
+                };
+            }
+
+            .timeline-content {
+                padding-left: 40px;
+                @include lg {
+                    float: left;
+                    text-align: right;
+                    padding-right: 30px;
+                };
+            }
+        }
+
+        &:last-child {
+            .timeline-marker:after {
+                content:none;
+            }
+        }
+
+        &:hover .timeline-marker:before {
+          background: transparent;
+          border: 3px solid #FF6B6B;
+        }
+
+    }
+
+    .timeline-time {
+        width: 50%;
+        font-size: small;
+        font-weight: bold;
+    }
+
+    .timeline-content {
+        @include lg {
+            width: 50%;
+        };
+
+        h3 {
+            color:#3D4351;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        h4 {
+            margin-top: 0;
+            color:rgb(149, 61, 61);
+        }
+        p {
+          text-align: justify;
+          font-size: small;
+        }
+    }
+
+    .timeline-marker {
+        position: absolute;
+        width:15px;
+        top:0;
+        bottom: 0;
+
+        @include lg {
+            left: 50%;
+            margin-left: -7.5px;
+        };
+
+        &:before {
+            background: #FF6B6B;
+            border: 3px solid transparent;
+            border-radius: 100%;
+            content: "";
+            display: block;
+            height: 15px;
+            position: absolute;
+            top: 4px;
+            left: 0;
+            width: 15px;
+            transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+        }
+
+        &:after {
+            content:'';
+            width: 3px;
+            background: #CCD5DB;
+            display: block;
+            position: absolute;
+            top: 24px;
+            bottom: 0;
+            left: 6px;
+        }
+    }
+}

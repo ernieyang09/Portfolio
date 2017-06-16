@@ -5,6 +5,7 @@ header {
   background-color: white;
   display: table;
   border-bottom: 1px solid rgba(0,0,0,0.1);
+  z-index: 2;
 
   &.default {
     height: 90px;
