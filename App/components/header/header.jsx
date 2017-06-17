@@ -53,6 +53,7 @@ class Header extends React.Component {
       <header className={this.props.navStyle}>
         <nav>
           <Link page="intro" text="Intro" />
+          <Link page="about" text="About" />
           <Link page="skill" text="Skill" />
           <Link page="experience" text="Experience" />
           <Link page="contact" text="Contact" />

@@ -3,15 +3,16 @@
 body {
   margin:0;
   color: #7f7f7f;
+  letter-spacing: 3px;
 }
 
 section {
   padding-top: 100px;
   min-height: 300px;
-
+  padding: 100px 0.5em 0 0.5em;
 
   .sec-title {
-
+    color:rgb(25, 111, 166);
     @include sm{
       text-align: right;
     }

@@ -1,0 +1,90 @@
+@import "../../assets/mixin.scss";
+
+#about {
+  text-align: justify;
+
+  .personal-pic-wrap {
+    position: relative;
+    min-height: 200px;
+
+  }
+  .personal-pic {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+    background-image: url('../../assets/avatar.jpeg');
+    background-position: center;
+    background-size: cover;
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+  }
+
+
+  .table {
+    padding-top: 40px;
+    @include lg{
+      padding-top: 0;
+    };
+    .table-row {
+
+      @include sm {
+        display: inline-block;
+        width: (100%/3);
+        padding: 12px;
+        box-sizing: border-box;
+      };
+
+      @include lg {
+        width: 45%;
+        margin: 0 2.5%;
+        display: inline-block;
+        vertical-align: top;
+      };
+    }
+    .table-th {
+
+      @include sm {
+        text-align: center;
+      };
+
+      @include lg {
+        text-align: left;
+      };
+
+      font-weight: bold;
+      color:rgb(70, 0, 255);
+      padding-right: 15px;
+    }
+
+    .table-td {
+      @include sm {
+        text-align: justify;
+        text-align-last: center;
+      };
+      @include lg {
+        text-align: left;
+        text-align-last: left;
+      };
+      padding: 24px 0;
+    }
+  }
+
+  .personal-about {
+    margin-top: 3em;
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+
+    h2 {
+      color: black;
+    }
+
+    p {
+      @include lg {
+        border-width: 1px;
+        border-style: dashed;
+        padding: 1.5em 2em;
+      };
+    }
+  }
+}
