@@ -33,13 +33,13 @@
         width: (100%/3);
         padding: 12px;
         box-sizing: border-box;
+        vertical-align: top;
       };
 
       @include lg {
         width: 45%;
         margin: 0 2.5%;
         display: inline-block;
-        vertical-align: top;
       };
     }
     .table-th {

@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+require('./skill.scss');
+
 const Skill = () => (
   <section id="skill" className="test">
     <div className="row">

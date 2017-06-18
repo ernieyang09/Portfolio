@@ -9,7 +9,11 @@ import './header.scss';
 class Header extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      navStyle: 'default',
+    };
     this.scrollFunction = this.scrollListener.bind(this);
+
   }
 
   componentDidMount() {
@@ -38,10 +42,10 @@ class Header extends React.Component {
                             window.pageYOffset :
     (document.documentElement || document.body.parentNode || document.body).scrollTop;
 
-    if (windowScrollTop < 90 && this.props.navStyle !== 'default') {
-      this.props.onchangeNav('default');
-    } else if (windowScrollTop >= 90 && this.props.navStyle !== 'fix') {
-      this.props.onchangeNav('fix');
+    if (windowScrollTop < 90 && this.state.navStyle !== 'default') {
+      this.setState({ navStyle: 'default' });
+    } else if (windowScrollTop >= 90 && this.state.navStyle !== 'fix') {
+      this.setState({ navStyle: 'fix' });
     }
 
 
@@ -50,7 +54,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <header className={this.props.navStyle}>
+      <header className={this.state.navStyle}>
         <nav>
           <Link page="intro" text="Intro" />
           <Link page="about" text="About" />
@@ -64,27 +68,6 @@ class Header extends React.Component {
   }
 }
 
-// const Header = ({
-//   navStyle
-// }) => {
-//   return (
-//     <header className={`${classes[navStyle]}`}>
-//       <nav>
-//         <Link page="intro" text="Intro" />
-//         <Link page="skill" text="Skill" />
-//         <Link page="experience" text="Experience" />
-//         <Link page="contact" text="Contact" />
-//         <a href="">中英</a>
-//       </nav>
-//     </header>
-//   );
-// };
-
-const mapStateToProps = (state) => {
-  return ({
-    navStyle: state.getIn(['App', 'NavStyle'])
-  });
-};
 
 const mapDispatchToProps = (dispatch) => {
   return ({
@@ -94,4 +77,4 @@ const mapDispatchToProps = (dispatch) => {
   });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(null, mapDispatchToProps)(Header);
