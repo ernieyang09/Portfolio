@@ -11,7 +11,7 @@ const Experience = () => (
         <h1>學歷/經歷</h1>
         <h3>(初版)</h3>
       </div>
-      <div className="sec-content col-xs-offset-2 col-xs-9 col-sm-offset-1 col-sm-7 col-lg-offset-0  col-lg-6">
+      <div className="sec-content col-xs-offset-2 col-xs-9 col-sm-offset-0 col-sm-8  col-lg-6">
         <ul className="timeline">
           <li className="timeline-item">
             <div className="timeline-time">2013/06</div>

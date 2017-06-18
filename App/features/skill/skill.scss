@@ -1,3 +1,139 @@
+@import "../../assets/mixin.scss";
+
+// .skill-info-o {
+//   background: #17bed2;
+//
+//   h4 {
+//     color: white;
+//   }
+//   color:white;
+// }
+
+@mixin skill-info-o {
+    .skill-info-background{
+      background: rgb(2, 54, 72);
+    }
+    .skill-info-content {
+      h4 {
+        color: white;
+      }
+      color:white;
+    }
+}
+
 #skill {
   background: #f9f9f9;
+
+  .skill-info-wrap {
+
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-bottom: 5px;
+
+
+    @include xs{
+      &:nth-child(2n) {
+        @include skill-info-o;
+      }
+    };
+
+
+    @media only screen and (min-width: 48em) and (max-width: 75em)  {
+      &:nth-child(4n-1), &:nth-child(4n-2) {
+          @include skill-info-o;
+      }
+    };
+
+    @include lg {
+      &:nth-child(3n-1) {
+          @include skill-info-o;
+      }
+    };
+
+    &:hover{
+      .skill-info-content {
+        @include prefix('transform','translate3d(0, -75px, 0)');
+        transition-duration: 300ms;
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+      }
+      .ic {
+        opacity: 0;
+        @include prefix('transform','translate3d(0, -100%, 0)');
+        transition-duration: .3s;
+        transition-property: all;
+        transition-timing-function: cubic-bezier(.7,1,.7,1);
+      }
+    }
+  }
+
+  .skill-info-background {
+    background: white;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .skill-info-content {
+    padding: 12px 24px 12px 12px;
+    box-sizing: border-box;
+    @include prefix('transform','translate3d(0, 0, 0)');
+    transition-duration: 300ms;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+
+
+    h4 {
+      color:#515769;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    p {
+      text-align: justify;
+      font-size: small;
+      margin-bottom: 40px;
+      line-height: 1.2;
+
+      @include lg {
+        line-height: 2;
+      };
+    }
+
+  }
+}
+
+.ic {
+  content:'';
+  width: 48px;
+  height: 48px;
+  margin-top: 24px;
+  margin-left: 24px;
+  @include prefix('transform','translate3d(0, 0, 0)');
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+}
+
+.html {
+  background-image: url('../../assets/svg/html.svg');
+}
+
+.js {
+  background-image: url('../../assets/svg/js.svg');
+}
+
+.php {
+  background-image: url('../../assets/svg/php.svg');
+}
+
+.csharp {
+  background-image: url('../../assets/svg/csharp.svg');
+}
+
+.database {
+  background-image: url('../../assets/svg/database.svg');
+}
+
+.others {
+  background-image: url('../../assets/svg/others.svg');
 }

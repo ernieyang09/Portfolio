@@ -11,7 +11,7 @@ const Contact = ({ children }) => (
         <h1>聯絡方式</h1>
         <h3>(初版)</h3>
       </div>
-      <div className="sec-content col-xs-12 col-xs-offset-2 col-sm-offset-1 col-sm-7 col-lg-offset-1 col-lg-7">
+      <div className="sec-content col-xs-12 col-xs-offset-2 col-sm-offset-0 col-sm-7 col-lg-offset-1 col-lg-7">
         <div className="row">
           <div className="content-row col-xs-12">
             <i className="icon-location2" />新北市,台灣

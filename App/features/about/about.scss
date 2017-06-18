@@ -80,6 +80,7 @@
     }
 
     p {
+      line-height: 2;
       @include lg {
         border-width: 1px;
         border-style: dashed;
