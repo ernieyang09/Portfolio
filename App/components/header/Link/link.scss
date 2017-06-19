@@ -12,6 +12,10 @@ nav {
     padding:0 12px;
     color:#7f7f7f;
 
+    .default & {
+      color:white;
+    }
+
     span {
       display: block;
       position: relative;
@@ -28,11 +32,19 @@ nav {
         visibility: hidden;
         @include prefix('transform','scaleX(0)');
         @include prefix('transition','all 0.3s ease-in-out 0s');
+
+        .default & {
+          background-color: #92ff6e;
+        }
       }
     }
 
     &:hover, &.active {
-       color: #6173f4 !important;
+       color: #6173f4;
+
+       .default & {
+         color: #92ff6e;
+       }
 
        span:before {
          visibility: visible;

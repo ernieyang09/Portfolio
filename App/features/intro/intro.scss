@@ -1,4 +1,9 @@
-.intro {
-  height: calc(100vh - 90px);
-  margin-top: 90px;
+#intro {
+  height: calc(100vh);
+  margin:0;
+  padding: 0;
+
+  #canvas {
+    background: #030116;
+  }
 }

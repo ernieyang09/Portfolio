@@ -13,7 +13,6 @@ class Header extends React.Component {
       navStyle: 'default',
     };
     this.scrollFunction = this.scrollListener.bind(this);
-
   }
 
   componentDidMount() {
