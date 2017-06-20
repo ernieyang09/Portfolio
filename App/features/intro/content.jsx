@@ -10,13 +10,13 @@ class Intro extends React.Component {
 
   }
 
+  // TODO 在不同size下要有不同的呈現方式
   componentDidMount() {
     const canvas = new fabric.StaticCanvas('canvas', {
       width: window.innerWidth,
       height: window.innerHeight * 0.85,
       renderOnAddRemove: false,
     });
-
 
 
     const getRandomInt = fabric.util.getRandomInt;
