@@ -17,12 +17,7 @@ class Intro extends React.Component {
       renderOnAddRemove: false,
     });
 
-    function resizeCanvas() {
-      canvas.setHeight(window.innerHeight * 0.85);
-      canvas.setWidth(window.innerWidth);
-    }
 
-    window.addEventListener('resize', resizeCanvas, false);
 
     const getRandomInt = fabric.util.getRandomInt;
     const rainbow = ['#ffcc66', '#ccff66', '#66ccff', '#ff6fcf', '#ff6666'];
@@ -63,7 +58,7 @@ class Intro extends React.Component {
               top: canvas.height * 0.5 + fabric.util.parseUnit('1em'),
             });
 
-        canvas.add(msg1).add(msg2);
+    canvas.add(msg1).add(msg2);
 
     function animate() {
       for (let dot of dotArr) {
@@ -71,12 +66,6 @@ class Intro extends React.Component {
         let dy = dot.top;
         let vx = dot.vx;
         let vy = dot.vy;
-        // console.log(dx,dy,vx, vx)
-        // if (dx * dx + dy * dy <= 10000) {
-        //   console.log(1)
-        //   vx += dx * 0.01;
-        //   vy += dy * 0.01;
-        // }
 
         vx *= 0.95;
         vy *= 0.95;
@@ -102,8 +91,17 @@ class Intro extends React.Component {
       fabric.util.requestAnimFrame(animate, canvas.getElement());
       canvas.renderAll();
     }
-     animate();
+    animate();
     canvas.renderAll();
+
+    function resizeCanvas() {
+      canvas.setHeight(window.innerHeight * 0.85);
+      canvas.setWidth(window.innerWidth);
+      msg1.setLeft((canvas.width - fabric.util.parseUnit('24em'))).setTop(canvas.height * 0.5 - fabric.util.parseUnit('1em'));
+      msg2.setLeft((canvas.width - fabric.util.parseUnit('17em'))).setTop(canvas.height * 0.5 + fabric.util.parseUnit('1em'));
+    }
+
+    window.addEventListener('resize', resizeCanvas, false);
   }
 
   render () {
