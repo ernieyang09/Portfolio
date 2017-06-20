@@ -1,3 +1,5 @@
+@import "../../assets/mixin.scss";
+
 #intro {
   height: calc(100vh);
   margin:0;
@@ -10,14 +12,32 @@
   .next {
     display: block;
     position: absolute;
-    // width: 100px;
-    // height: 100px;
-    background-color: black;
     bottom: 24px;
     right:1em;
     color:white;
     padding: 20px;
     font-size: 5.5em;
     cursor: pointer;
+    @include prefix('animation-name',arrow-down);
+    @include prefix('animation-duration','1.6s');
+    @include prefix('animation-timing-function','linear');
+    @include prefix('animation-iteration-count','infinite');
   }
+  @include keyframes ('arrow-down') {
+    0% {
+        opacity: 0.9;
+        transform: translateY(-8px);
+     }
+     25% {
+       opacity: 1;
+     }
+    //  75% {
+    //    opacity: 1;
+    //  }
+     100% {
+        opacity: 0;
+        transform: translateY(16px);
+     }
+
+  };
 }

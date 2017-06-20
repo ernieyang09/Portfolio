@@ -8,7 +8,7 @@ const Footer = () => {
       <div style={{ width: '50%', margin: '0 auto', color: '#bb00ff' }} >Design with: Velocity.js、flexgridcss、sass、icomoon、RWD table、timeline、react、redux、Fabric.js</div>
       {'©2017 Ernie Yang.All rights reserved.'}
     </footer>
-  )
-}
+  );
+};
 
 export default Footer;
