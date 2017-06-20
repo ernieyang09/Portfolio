@@ -63,17 +63,8 @@ class Header extends React.Component {
           <a href="">中英</a>
         </nav>
       </header>
-    )
+    );
   }
 }
 
-
-const mapDispatchToProps = (dispatch) => {
-  return ({
-    onchangeNav: (style) => {
-      dispatch(Action.changeNav(style));
-    },
-  });
-};
-
-export default connect(null, mapDispatchToProps)(Header);
+export default Header;

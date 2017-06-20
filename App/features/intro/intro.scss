@@ -6,4 +6,18 @@
   #canvas {
     background: #030116;
   }
+
+  .next {
+    display: block;
+    position: absolute;
+    // width: 100px;
+    // height: 100px;
+    background-color: black;
+    bottom: 24px;
+    right:1em;
+    color:white;
+    padding: 20px;
+    font-size: 5.5em;
+    cursor: pointer;
+  }
 }

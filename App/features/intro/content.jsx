@@ -1,20 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { fabric } from 'fabric';
+import { connect } from 'react-redux';
+import Velocity from 'velocity-animate';
+import { Action } from '../../components/app';
+import constants from '../../components/app/constants';
 
 require('./intro.scss');
 
 class Intro extends React.Component {
   constructor(props) {
     super(props);
-
+    this.onClick = props.onClick.bind(this);
   }
 
   // TODO 在不同size下要有不同的呈現方式
   componentDidMount() {
     const canvas = new fabric.StaticCanvas('canvas', {
       width: window.innerWidth,
-      height: window.innerHeight * 0.85,
+      height: window.innerHeight,
       renderOnAddRemove: false,
     });
 
@@ -74,8 +78,8 @@ class Intro extends React.Component {
         vy += Math.random() - 0.5;
         dot.left += vx;
         dot.top += vy;
-        const degree = Math.asin(Math.abs(canvas.height * 0.5 - dot.top)/(canvas.width * 0.4));
-        const maxWidth = canvas.width *0.2 + canvas.width * 0.4 * Math.cos(degree);
+        const degree = Math.asin(Math.abs((canvas.height * 0.5) - dot.top) / (canvas.width * 0.4));
+        const maxWidth = (canvas.width * 0.2) + (canvas.width * 0.4 * Math.cos(degree));
 
 
         if (dot.left < 0 || dot.left > maxWidth || dot.top < 0 || dot.top > canvas.height) {
@@ -95,46 +99,44 @@ class Intro extends React.Component {
     canvas.renderAll();
 
     function resizeCanvas() {
-      canvas.setHeight(window.innerHeight * 0.85);
-      canvas.setWidth(window.innerWidth);
-      msg1.setLeft((canvas.width - fabric.util.parseUnit('24em'))).setTop(canvas.height * 0.5 - fabric.util.parseUnit('1em'));
-      msg2.setLeft((canvas.width - fabric.util.parseUnit('17em'))).setTop(canvas.height * 0.5 + fabric.util.parseUnit('1em'));
+      canvas.setWidth(window.innerWidth).setHeight(window.innerHeight);
+      msg1.setLeft((canvas.width - fabric.util.parseUnit('24em'))).setTop((canvas.height * 0.5) - fabric.util.parseUnit('1em'));
+      msg2.setLeft((canvas.width - fabric.util.parseUnit('17em'))).setTop((canvas.height * 0.5) + fabric.util.parseUnit('1em'));
     }
 
     window.addEventListener('resize', resizeCanvas, false);
   }
 
-  render () {
+  render() {
     return (
       <section id="intro">
-        <canvas id ="canvas" />
-        {/* <div className="row">
-          <div className="sec-title col-xs-11 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-lg-4">
-            <h1>Not Design Yet</h1>
-          </div>
-          <div className="sec-content col-xs-offset-2 col-xs-9 col-sm-offset-1 col-sm-7 col-lg-offset-1  col-lg-6">
-            <div>Design with: Velocity.js、flexgridcss、sass</div>
-            <div>Skill:RWD table、timeline、react、redux</div>
-          </div>
-        </div> */}
+        <canvas id="canvas" />
+        <div className="next" onClick={(e) => { this.onClick(e) } }>
+          <i className="icon-angle-double-down" />
+        </div>
       </section>
-
-    )
+    );
   }
 
 }
-// const Intro = () => (
-//   <section id="intro">
-//     <div className="row">
-//       <div className="sec-title col-xs-11 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-lg-4">
-//         <h1>Not Design Yet</h1>
-//       </div>
-//       <div className="sec-content col-xs-offset-2 col-xs-9 col-sm-offset-1 col-sm-7 col-lg-offset-1  col-lg-6">
-//         <div>Design with: Velocity.js、flexgridcss、sass</div>
-//         <div>Skill:RWD table、timeline、react、redux</div>
-//       </div>
-//     </div>
-//   </section>
-// );
 
-export default Intro;
+
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    onClick: (e) => {
+      e.preventDefault();
+      const offset = constants.navFix;
+
+      Velocity(document.getElementById('about'), 'scroll', {
+        duration: 500,
+        offset: -offset,
+        easing: 'ease-in-out',
+      });
+
+      dispatch(Action.changePage('about'));
+    },
+  });
+};
+
+
+export default connect(null, mapDispatchToProps)(Intro);
