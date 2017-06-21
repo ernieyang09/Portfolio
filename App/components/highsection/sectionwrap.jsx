@@ -6,9 +6,6 @@ import { Action } from '../app';
 class SectionWrapper extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      enter: false,
-    };
     this.scrollFunction = this.scrollListener.bind(this);
   }
 
@@ -41,22 +38,17 @@ class SectionWrapper extends React.Component {
                             window.pageYOffset :
     (document.documentElement || document.body.parentNode || document.body).scrollTop;
 
-    if ((windowScrollTop > ref.offsetTop - 120
-      && windowScrollTop < ref.offsetTop + ref.offsetHeight - 90)
-      && !this.state.enter) {
-      this.setState({ enter: true });
-      this.props.onScroll(ref.id);
-    } else if ((windowScrollTop < ref.offsetTop - 120
-      || windowScrollTop > ref.offsetTop + ref.offsetHeight - 90)
-      && this.state.enter) {
-      this.setState({ enter: false });
+      if (document.body.scrollHeight === document.body.scrollTop + window.innerHeight) {
+        this.props.onScroll('contact');
+      } else if ((windowScrollTop > ref.offsetTop - 120
+      && windowScrollTop < ref.offsetTop + ref.offsetHeight - 90)) {
+        this.props.onScroll(ref.id);
     }
   }
 
   render() {
     return React.cloneElement(React.Children.only(this.props.children), {
       ref: (n) => { this.child = n; },
-      enter: this.state.enter,
     });
   }
 }
