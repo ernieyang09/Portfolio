@@ -2,9 +2,9 @@
 
 ## 楊博勛 Ernie Yang
 
-##Web Profolio
+## Web Profolio
 
-####待改善
+#### 待改善
 
 * 中英切換
 * nav bar在rwd改為漢堡選單
