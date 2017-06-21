@@ -109,7 +109,7 @@ class Intro extends React.Component {
 
   render() {
     return (
-      <section id="intro">
+      <section id="intro" ref={(n) => { this.section = n; }}>
         <canvas id="canvas" />
         <div className="next" onClick={(e) => { this.onClick(e) } }>
           <i className="icon-angle-double-down" />
@@ -139,4 +139,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-export default connect(null, mapDispatchToProps)(Intro);
+export default connect(null, mapDispatchToProps, null, { withRef: true })(Intro);

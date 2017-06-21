@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import Velocity from 'velocity-animate';
-import { Action } from '../../app';
 import constants from '../constants';
 
 import './link.scss';
@@ -26,7 +25,6 @@ const mapDispatchToProps = (dispatch) => {
         easing: 'ease-in-out',
       });
 
-      dispatch(Action.changePage(page));
     },
   });
 };
