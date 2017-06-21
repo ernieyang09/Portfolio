@@ -55,7 +55,7 @@ module.exports = {
       },
       {
         test: /\.(jpg|jpeg|gif)$/,
-        use: ['file-loader']
+        use: ['file-loader?publicPath=Build/assets/']
       }
     ]
   },
