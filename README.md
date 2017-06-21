@@ -1,6 +1,4 @@
-# Profolio
-
-## 楊博勛 Ernie Yang
+# Profolio 楊博勛(Ernie Yang)
 
 ## Web Profolio
 
